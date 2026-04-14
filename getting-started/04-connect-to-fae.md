@@ -41,11 +41,13 @@ cd ~/agents/acme/
 claude
 ```
 
-Then in the Claude session:
+Then in the Claude session, ask the agent to run a briefing:
 
 ```
-/briefing
+Give me a briefing on this project
 ```
+
+The agent will call the Remindr `briefing()` tool.
 
 If the connection is working:
 

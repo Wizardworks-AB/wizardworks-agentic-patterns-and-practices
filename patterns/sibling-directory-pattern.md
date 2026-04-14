@@ -94,10 +94,10 @@ For a new engagement with customer "Acme" and their project "acme-webapp":
 
 ```bash
 # Clone the agent repo (created from the template)
-git clone git@github.com:wizardworks/acme-agent.git ~/agents/acme/
+git clone https://github.com/Wizardworks-AB/acme-agent.git ~/agents/acme/
 
 # Clone the customer's code repo
-git clone git@github.com:acme-corp/acme-webapp.git ~/code/acme-webapp/
+git clone https://github.com/acme-corp/acme-webapp.git ~/code/acme-webapp/
 
 # Edit CLAUDE.md to point to the code repo
 # Set: "The code repository is located at ~/code/acme-webapp/"

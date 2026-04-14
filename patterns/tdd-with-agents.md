@@ -77,7 +77,7 @@ The file `.claude/docs/tdd-playbook.md` contains routing rules that determine wh
 | File Type       | Test Framework       | Convention              |
 |-----------------|----------------------|-------------------------|
 | C# / .NET       | xUnit + FluentAssertions | `*Tests.cs` files    |
-| React / TypeScript | Jest + React Testing Library | `*.test.tsx` files |
+| React / TypeScript | Vitest + React Testing Library | `*.test.tsx` files |
 | API endpoints   | Integration tests    | `*.Integration.cs`      |
 | Infrastructure  | Validation tests     | Per-module test files    |
 

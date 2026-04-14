@@ -105,7 +105,7 @@ Contains **3 pattern libraries** loaded on demand when the agent needs domain-sp
 
 - **.NET patterns** — C#/ASP.NET conventions, project structure, common implementations
 - **React patterns** — component structure, state management, testing approaches
-- **Infrastructure as Code** — Terraform/Bicep patterns, resource naming, deployment practices
+- **Infrastructure as Code** — Bicep patterns, resource naming, deployment practices
 
 Skills are loaded only when relevant, keeping the agent's context focused.
 
@@ -119,8 +119,8 @@ Stores architecture decisions and implementation plans created during `/plan` se
 
 ## Other Key Files
 
-- **CONSTITUTION.md** — A versioned document containing Wizardworks engineering principles. This is the foundational "why" behind the rules and workflows.
-- **DOC.md** — Complete usage guide for the client agent. Start here if you're new to the setup.
+- **CONSTITUTION.md** — A versioned document containing Wizardworks engineering principles. This is the foundational "why" behind the rules and workflows. Found in the client agent repo at `.claude/CONSTITUTION.md`.
+- **DOC.md** — Complete usage guide for the client agent. Found in the client agent repo at `.claude/DOC.md`.
 
 ## How to Customize
 
@@ -128,6 +128,6 @@ Stores architecture decisions and implementation plans created during `/plan` se
 2. **Disable/enable hooks** — Comment out or remove hooks in `hooks.json` if they don't apply to the customer's stack.
 3. **Adjust rules** — Modify rule documents to match customer conventions (e.g., different naming standards, different branching strategy).
 4. **Add or modify skills** — Add customer-specific pattern libraries if the project uses a stack not covered by the defaults.
-5. **Update agent models** — If a customer requires specific model assignments (e.g., all opus for a security-critical project), adjust the YAML frontmatter.
+5. **Review agent models** — Each agent has an optimal model assignment. Do not override unless there is documented justification (e.g., budget constraints requiring all-haiku).
 
 The template gives you a working baseline. Customization makes it fit the specific engagement.

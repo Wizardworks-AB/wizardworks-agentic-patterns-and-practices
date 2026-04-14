@@ -70,7 +70,7 @@ All 14 hooks are active by default. They run automatically and check the agent's
 **Always keep active:**
 - `check-secrets` — prevents accidental commits of secrets and credentials. Never disable this.
 
-To disable a hook, comment it out or remove it from the hooks configuration in `.claude/settings.json`.
+To disable a hook, comment it out or remove it from `.claude/hooks/hooks.json`.
 
 ## Step 5: Review Rules
 

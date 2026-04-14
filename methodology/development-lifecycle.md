@@ -65,7 +65,7 @@ This is where the agent does the heaviest lifting. The workflow follows TDD and 
 ```
 /plan
   └→ Architect validates plan
-       └→ /tdd-test (RED — write failing tests)
+       └→ /tdd (RED — write failing tests)
             └→ /tdd-implement (GREEN → REFACTOR)
                  └→ Parallel:
                       ├─ /code-review

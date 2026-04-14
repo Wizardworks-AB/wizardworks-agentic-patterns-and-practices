@@ -53,7 +53,7 @@ Key Remindr operations:
 - **`context()`** — Pull relevant context for a specific task
 - **`decide()`** — Record a decision with rationale
 - **`remember()`** — Store a fact, insight, or state for future sessions
-- **`recall()`** — Retrieve stored knowledge
+- **`context(query)`** — Search for relevant knowledge
 
 This replaces the old `humans/` and `shared/` directory approach with a structured, queryable knowledge graph.
 
