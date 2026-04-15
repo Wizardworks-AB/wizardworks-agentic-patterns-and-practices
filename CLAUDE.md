@@ -36,7 +36,7 @@ When a developer asks a question:
 2. "Use this template" on wizardworks-client-agent-template → create client agent repo
 3. Clone client agent repo to ~/agents/<customer>/
 4. Edit CLAUDE.md with project details
-5. claude mcp add --transport http remindr <FAE_URL>/mcp → connect to Fae
+5. Add `.mcp.json` with Remindr config → connect to Fae
 6. Create/connect living documentation repo
 7. cd ~/agents/<customer>/ && claude → start working
 ```

@@ -8,19 +8,45 @@ Fae is the platform for fully automated software development. It ties together a
 
 ## Add the Remindr MCP Server
 
-Register Remindr as an MCP server for Claude Code:
+MCP servers are configured in `.mcp.json` in the project root. This file is checked into the repo so the configuration is shared across the team.
 
-```bash
-claude mcp add --transport http remindr <FAE_URL>/mcp
+Create `.mcp.json` in your agent repo root:
+
+```json
+{
+  "mcpServers": {
+    "remindr": {
+      "type": "http",
+      "url": "<FAE_URL>/mcp",
+      "headers": {
+        "X-Default-Project": "<PROJECT_NAME>"
+      }
+    }
+  }
+}
 ```
 
-Replace `<FAE_URL>` with your project's Fae URL (the same one you put in `CLAUDE.md` as `[FAE_REMINDR_URL]`).
+Replace:
+- `<FAE_URL>` — your project's Fae URL (the same one you put in `CLAUDE.md` as `[FAE_REMINDR_URL]`)
+- `<PROJECT_NAME>` — your project name (so you don't have to pass `project` on every tool call)
 
 Example:
 
-```bash
-claude mcp add --transport http remindr https://fae.wizardworks.se/acme/mcp
+```json
+{
+  "mcpServers": {
+    "remindr": {
+      "type": "http",
+      "url": "https://fae.wizardworks.se/acme/mcp",
+      "headers": {
+        "X-Default-Project": "acme-web"
+      }
+    }
+  }
+}
 ```
+
+> **Important:** Do NOT use `claude mcp add` — that puts the configuration in `settings.local.json` which is user-local and not version-controlled. The `.mcp.json` file ensures every team member and every agent gets the same MCP configuration automatically.
 
 ## Authentication
 
