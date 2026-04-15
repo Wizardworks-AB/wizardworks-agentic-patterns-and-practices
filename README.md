@@ -6,7 +6,18 @@ This repository is the single source of truth for our agentic development method
 
 ## Quick Start
 
-### New to Wizardworks agentic development?
+### Starting a new client/project agent
+
+Open Claude Code and tell it:
+
+```
+Set up a new client project called <project-name> based on
+https://github.com/Wizardworks-AB/wizardworks-agentic-patterns-and-practices
+```
+
+Replace `<project-name>` with the name of the customer or project. Claude will clone this repo, create the agent from the template, and walk you through configuration.
+
+### Want to understand the process in detail?
 
 Follow the [Getting Started](getting-started/01-overview.md) guide:
 
