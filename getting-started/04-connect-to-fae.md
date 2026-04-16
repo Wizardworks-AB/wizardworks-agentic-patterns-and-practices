@@ -27,7 +27,7 @@ Create `.mcp.json` in your agent repo root:
 ```
 
 Replace:
-- `<FAE_URL>` — your project's Fae URL (the same one you put in `CLAUDE.md` as `[FAE_REMINDR_URL]`)
+- `<FAE_URL>` — your project's Fae URL (provided during project onboarding)
 - `<PROJECT_NAME>` — your project name (so you don't have to pass `project` on every tool call)
 
 Example:
@@ -100,11 +100,14 @@ This means you do not start from zero each session. The agent picks up where you
 
 ## The Agent Already Knows What To Do
 
-The `CLAUDE.md` in the client agent template already contains instructions for using Remindr tools. Once connected, the agent will:
+The client agent template includes `.claude/rules/fae.md` — a rule file that loads automatically in every session. It tells the agent when and how to use the Remindr tools. Once connected, the agent will:
 
-- Read relevant knowledge at the start of a session
-- Record decisions and facts as they come up during work
-- Check for blockers and messages from other agents
+- Run `briefing(sinceLastSession: true)` at the start of every session
+- Record decisions with `decide()` and facts with `remember()` as they come up
+- Track blockers with `block()` and resolutions with `resolve()`
+- Search existing knowledge with `context()` before re-discovering things
 - Update the knowledge graph when important things happen
 
 You do not need to teach the agent how to use Remindr. You just need to connect it.
+
+> **Note:** The Fae instructions live in `.claude/rules/fae.md`, not in `CLAUDE.md`. This means they survive even if you completely rewrite `CLAUDE.md` for your project. See the [full tool reference](../fae/mcp-tools-reference.md) for details on all available tools.
