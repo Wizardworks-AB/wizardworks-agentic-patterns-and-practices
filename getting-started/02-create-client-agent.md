@@ -7,31 +7,30 @@ Before you begin, make sure you have:
 - **GitHub access** to the [Wizardworks-AB](https://github.com/Wizardworks-AB) organization
 - **Claude Code** installed and working (`claude --version` to verify)
 
-## Step 1: Open the Template
+## How It Works
 
-Go to the client agent template repository:
+A client agent is a **local clone** of the shared template repository. Each developer clones the template, configures it for their client, and uses it locally. Agent instances are never pushed back to GitHub.
 
-```
-https://github.com/Wizardworks-AB/wizardworks-client-agent-template
-```
+This means:
 
-## Step 2: Create Your Agent Repo
+- **One template**, many local instances
+- **Multiple developers** can have their own agent for the same client
+- Each agent is personal configuration, not shared code
+- The template repo evolves independently and can be pulled for updates
 
-Click **"Use this template"** and then **"Create a new repository"**.
+## Step 1: Clone the Template
 
-- **Owner:** Wizardworks-AB
-- **Name:** Follow the naming convention `customer-agent`, for example `acme-agent`
-- **Visibility:** Private
-
-## Step 3: Clone to Your Agents Directory
-
-Clone the new repo into your local `~/agents/` directory:
+Clone the client agent template into your local agents directory:
 
 ```bash
-git clone https://github.com/Wizardworks-AB/acme-agent.git ~/agents/acme/
+git clone https://github.com/Wizardworks-AB/wizardworks-client-agent-template ~/agents/acme/
 ```
 
-## Step 4: Verify the Customer Code Repo
+Replace `acme` with the client name (lowercase, hyphenated).
+
+> **Important:** Do not create a new GitHub repository for the agent. Do not push your local agent instance. It lives only on your machine.
+
+## Step 2: Verify the Customer Code Repo
 
 Make sure the customer's code repository is cloned into your `~/code/` directory:
 
@@ -53,7 +52,7 @@ Wizardworks uses a consistent directory layout across all machines and all consu
 
 ```
 ~/
-├── agents/          # Agent configurations
+├── agents/          # Agent configurations (local only, never pushed)
 │   ├── acme/        # Client agent for Acme project
 │   └── beta/        # Client agent for Beta project
 │
@@ -64,9 +63,32 @@ Wizardworks uses a consistent directory layout across all machines and all consu
 
 This separation is deliberate:
 
-- **Agent config** lives in its own repo, versioned independently from the customer's code
+- **Agent config** is a local clone of the template, customized per client and per developer
 - **Customer code** stays untouched by agent configuration files
 - The agent knows where to find the code repo via paths configured in `CLAUDE.md`
+
+## Multiple Developers, Same Client
+
+When two developers work on the same client, they each have their own local agent:
+
+```
+Developer A:                     Developer B:
+~/agents/acme/  (their config)   ~/agents/acme/  (their config)
+~/code/acme-api/ (shared repo)   ~/code/acme-api/ (shared repo)
+```
+
+The code repo is shared (same GitHub repo, normal git workflow). The agent config is personal. If Developer A customizes their agent's hooks or adds context, it does not affect Developer B.
+
+## Updating the Template
+
+When the template improves, pull updates into your local agent:
+
+```bash
+cd ~/agents/acme/
+git pull origin main
+```
+
+Resolve any conflicts with your local customizations. The template provides the structure; your `CLAUDE.md` and local tweaks are yours to maintain.
 
 ## What You Get
 

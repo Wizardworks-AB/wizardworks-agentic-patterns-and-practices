@@ -2,17 +2,19 @@
 
 ## What Is a Client Agent?
 
-A client agent is a **git repository** containing Claude Code configuration for a specific customer project. It holds everything the AI agent needs to work effectively within a particular codebase: project context, workflow definitions, coding standards, specialist agent configurations, and automated guardrails.
+A client agent is a **local clone** of the shared client agent template, configured for a specific customer project. It holds everything the AI agent needs to work effectively within a particular codebase: project context, workflow definitions, coding standards, specialist agent configurations, and automated guardrails.
 
-Think of it as the agent's "workstation setup" — tailored to one customer engagement.
+Think of it as the agent's "workstation setup" — personal to you, tailored to one customer engagement.
 
 ## Creating a New Client Agent
 
-Client agents are created from the `wizardworks-client-agent-template` repository using GitHub's **"Use this template"** button. This gives you a fresh repo with the full directory structure, ready to customize.
+Client agents are created by cloning the `wizardworks-client-agent-template` repository locally. Each developer maintains their own local instance. Agent instances are never pushed back to GitHub.
 
+```bash
+git clone https://github.com/Wizardworks-AB/wizardworks-client-agent-template ~/agents/acme/
 ```
-GitHub → wizardworks-client-agent-template → "Use this template" → New repo
-```
+
+See [Create a Client Agent](../getting-started/02-create-client-agent.md) for the full setup guide.
 
 ## The Key File: CLAUDE.md
 
