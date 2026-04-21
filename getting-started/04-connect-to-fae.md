@@ -46,7 +46,7 @@ Example:
 }
 ```
 
-> **Important:** Do NOT use `claude mcp add` — that puts the configuration in `settings.local.json` which is user-local and not version-controlled. The `.mcp.json` file ensures every team member and every agent gets the same MCP configuration automatically.
+> **Important:** Do NOT use `claude mcp add` — that stores the configuration in your user-level Claude config (`~/.claude.json`), which is not version-controlled and not shared across the team. The `.mcp.json` file lives in the agent repo, so every team member and every agent instance gets the same MCP configuration automatically.
 
 ## Authentication
 
